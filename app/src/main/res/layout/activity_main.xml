@@ -4,12 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/main_backgram"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/navigation_bar"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="电子门禁卡"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp_20" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/navigation_bar"
+        android:layout_marginHorizontal="@dimen/dp_10"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -18,36 +39,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="卡号："
-            android:textColor="#000000"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/card01"
-            android:textColor="#000000"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textColor="#777777"
+            android:textSize="@dimen/sp_15" />
 
-        <EditText
-            android:id="@+id/et_uuid"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/cardNo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="请输入卡号"
-            android:digits="0123456789abcdef"
-            android:text="00000002"
-            android:maxLength="8"
-            android:textColor="#000000"
-            android:textSize="20dp" />
-        <TextView
-            android:id="@+id/card02"
-            android:textColor="#000000"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="020000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text=""
+            android:textColor="#777777"
+            android:textSize="@dimen/sp_15" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
+        android:layout_marginHorizontal="@dimen/dp_10"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -63,232 +66,141 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="时间："
-            android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textColor="#777777"
+            android:textSize="@dimen/sp_15" />
 
         <TextView
             android:id="@+id/timeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp" />
-
+            android:textColor="#777777"
+            android:textSize="@dimen/sp_15" />
     </LinearLayout>
 
-   <!-- <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/la"
-        android:orientation="horizontal"
-        android:layout_below="@+id/ls"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="key："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/rl"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/ls"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:gravity="center">-->
 
-        <TextView
-            android:id="@+id/key"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginRight="10dp"-->
+    <!--            android:layout_toLeftOf="@+id/view"-->
+    <!--            android:text="通行开关"-->
+    <!--            android:textSize="20sp" />-->
 
-    </LinearLayout>
+    <!--        <TextView-->
+    <!--            android:id="@+id/view"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true" />-->
+
+    <!--        <Switch-->
+
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_marginLeft="10dp"-->
+    <!--            android:layout_toRightOf="@+id/view" />-->
+    <!--    </RelativeLayout>-->
+
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/lb"
-        android:orientation="horizontal"
-        android:layout_below="@+id/la"
+        android:id="@+id/ll_qr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ls"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="DES："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:textAllCaps="true"
-            android:id="@+id/des"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/lc"
-        android:orientation="horizontal"
-        android:layout_below="@+id/lb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="MD5："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:textAllCaps="true"
-            android:id="@+id/md5"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/le"
-        android:orientation="horizontal"
-        android:layout_below="@+id/lc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="XOR："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:textAllCaps="true"
-            android:id="@+id/xor"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/lf"
-        android:orientation="horizontal"
-        android:layout_below="@+id/le"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="UUID："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:textAllCaps="true"
-            android:id="@+id/uuid"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/lg"
-        android:orientation="horizontal"
-        android:layout_below="@+id/lf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="Major："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/major"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/lh"
-        android:orientation="horizontal"
-        android:layout_below="@+id/lg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="Minor："
-            android:textColor="#000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/minor"
-            android:layout_marginRight="5dp"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
--->
-    <RelativeLayout
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/ls"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/view"
-            android:textSize="20dp"
-            android:text="开关"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/view"
-            android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <Switch
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/view"
-            android:id="@+id/switch_view"
+            android:id="@+id/tv_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="点击更新\n二维码"
+            android:textColor="#766156"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/transparent_bg"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/circle" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  将在 "
+                android:textColor="@color/pink_acfun" />
+
+            <TextView
+                android:id="@+id/tv_time_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textColor="@color/brown" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" s后更新"
+                android:textColor="@color/pink_acfun" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_qr"
+        android:orientation="vertical">
+
+        <ToggleButton
+            android:id="@+id/switch_view"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/sp_40"
+            android:background="@mipmap/button_qdl2"
+            android:gravity="center"
+            android:textColor="#777777"
+            android:textOff="点击开启门禁卡"
+            android:textOn="点击关闭门禁卡" />
+    </LinearLayout>
 
 </RelativeLayout>

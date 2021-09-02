@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg"
+    android:fitsSystemWindows="true"
+    android:layoutAnimation="@anim/from_bottom_layout"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity"
+    tools:layoutAnimation="@null">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_login_logo"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_25"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="@dimen/dp_30"
+        android:src="@mipmap/logo_001" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="@dimen/dp_80"
+        android:letterSpacing="0.2"
+        android:src="@mipmap/title001"
+        android:text="银欣云卡"
+        android:textColor="#141845"
+        android:textSize="@dimen/dp_25" />
+
+    <LinearLayout
+        android:id="@+id/ll_login_body"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_radius_4_color_ffff"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:text="@string/login_title"
+            android:textColor="#0257A0"
+            android:textSize="@dimen/sp_16" />
+
+        <View
+            style="@style/HorizontalLineStyle"
+            android:layout_marginHorizontal="40dp" />
+
+        <com.hjq.bar.TitleBar
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginHorizontal="@dimen/dp_30"
+            app:backButton="false"
+            app:barStyle="transparent"
+            app:rightColor="@color/red"
+            app:rightTitle="@string/login_register"
+            app:title="" />
+
+        <com.hjq.widget.view.ClearEditText
+            android:id="@+id/et_login_phone"
+            style="@style/EditTextStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableStart="@mipmap/login_mobile"
+            android:drawablePadding="@dimen/dp_8"
+            android:hint="@string/common_phone_input_hint"
+            android:inputType="textVisiblePassword"
+            android:singleLine="true"
+            app:regexType="mobile" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/login_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="记住手机号码"
+            android:theme="@style/LoginCheckBox" />
+
+
+        <com.hjq.widget.view.PasswordEditText
+            android:id="@+id/et_login_password"
+            style="@style/EditTextStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:drawableStart="@mipmap/login_password"
+            android:drawablePadding="@dimen/dp_8"
+            android:hint="@string/common_password_input_error"
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:singleLine="true" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_login_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="60dp"
+            android:text="@string/login_forget"
+            android:textColor="@color/common_accent_color"
+            android:visibility="gone" />
+
+        <com.hjq.widget.view.SubmitButton
+            android:id="@+id/btn_login_commit"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:text="@string/login_text" />
+
+    </LinearLayout>
+
+</LinearLayout>

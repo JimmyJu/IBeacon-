@@ -1,3 +1,68 @@
 <resources>
-    <string name="app_name">IBeaconDemo</string>
+    <string name="app_name">银欣云</string>
+    <string name="common_loading">加载中&#8230;</string>
+
+    <string name="common_phone_input_hint">请输入手机号码</string>
+    <string name="common_phone_input_error">手机号输入不正确</string>
+
+    <string name="common_password_input_error">请输入密码</string>
+    <string name="common_password_input_unlike">两次密码输入不一致，请重新输入</string>
+
+    <string name="common_code_input_hint">请输入验证码</string>
+    <string name="common_code_send">发送验证码</string>
+    <string name="common_code_send_hint">验证码已发送，请注意查收</string>
+    <string name="common_code_error_hint">验证码错误，请检查输入</string>
+    <string name="common_emil">邮箱输入不正确</string>
+    <string name="common_owned_company">请选择所属公司</string>
+    <string name="common_job">请选择岗位</string>
+
+    <!-- 选择对话框 -->
+    <string name="select_min_hint">至少要选择 %d 项</string>
+    <string name="select_max_hint">最多只能选择 %d 项</string>
+
+    <string name="common_confirm">确定</string>
+    <string name="common_cancel">取消</string>
+
+    <!-- 登录 -->
+    <string name="login_register">注册账号</string>
+    <string name="login_forget">忘记密码？</string>
+    <string name="login_text">登录</string>
+    <string name="login_title">手机号登录</string>
+
+    <string name="login_other">其他登录方式</string>
+
+    <!-- 加载中 -->
+    <string name="http_loading">加载中&#8230;</string>
+
+    <string name="http_unknown_error">请求出错，未知错误</string>
+    <string name="http_token_error">登录失效，请重新登录</string>
+    <string name="http_data_explain_error">数据解析异常，请稍后</string>
+    <string name="http_server_out_time">服务器请求超时，请稍后再试</string>
+    <string name="http_network_error">请求失败，请检查网络设置</string>
+    <string name="http_response_error">服务器响应异常，请稍后再试</string>
+    <string name="http_server_error">服务器连接异常，请稍后再试</string>
+    <string name="http_request_cancel">请求被中断，请重试</string>
+
+    <!-- 注册 -->
+    <string name="register_title">注册</string>
+    <string name="register_hint">手机号仅用于登录和保护账号安全</string>
+    <string name="register_password_hint1">设置6&#8211;18位登录密码</string>
+    <string name="register_password_hint2">请再次输入一次密码</string>
+    <string name="register_uesr_name_hint">请输入姓名</string>
+    <string name="register_e_mail_hint">请输入邮箱</string>
+    <string name="register_e_mail">邮箱</string>
+    <string name="register_company">选择所属公司:</string>
+    <string name="register_company_hint">选择所属公司</string>
+    <string name="register_uesr_name">姓名</string>
+    <string name="register_password_2">确认密码:</string>
+    <string name="register_password_1">密码:</string>
+    <string name="register_code">验证码:</string>
+    <string name="register_phone">手机号码:</string>
+    <string name="register_job">岗位:</string>
+    <string name="register_job_hint">选择岗位信息</string>
+    <string name="register_service_object">选择服务对象公司:</string>
+    <string name="register_service_object_hint">选择服务对象公司</string>
+    <string name="register_device_administrator">设备管理员</string>
+    <string name="register_proprietor">业主</string>
+
 </resources>
