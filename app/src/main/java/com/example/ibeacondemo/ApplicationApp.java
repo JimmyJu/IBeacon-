@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.TextView;
 
 import com.example.ibeacondemo.aop.DebugLog;
+import com.example.ibeacondemo.manager.ActivityManager;
 import com.example.ibeacondemo.model.RequestHandler;
 import com.example.ibeacondemo.server.RequestServer;
 import com.hjq.bar.TitleBar;
@@ -95,6 +96,10 @@ public class ApplicationApp extends Application {
                 return new AppCompatTextView(context);
             }
         });
+
+        // Activity 栈管理初始化
+        ActivityManager.getInstance().init(application);
+
 
 
 

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.activity.OpsMainActivity">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backButton="false"
+        app:title="@string/opsmain_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F2F2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_16"
+                android:textColor="#333333"
+                android:textSize="@dimen/sp_16"
+                tools:text="欢迎：李先生" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_40"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@drawable/shape_signout_btn"
+                android:text="@string/sign_out_of_account"
+                android:textColor="#F63C56"
+                android:textSize="@dimen/dp_16" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_53"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/prompt_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_14"
+                android:textColor="#F63C56"
+                android:textSize="@dimen/sp_12"
+                tools:text="您有2条故障信息需处理，详情请戳“我的报修工单”按钮" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_xxgl"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@+id/prompt_message"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="22dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_xxgl" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_sblb"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@id/prompt_message"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_sblb" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_wbgd"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@id/btn_xxgl"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_28"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_wbgd" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_wbgdcx"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@id/btn_sblb"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_wbgdcx" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_bxgd"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@id/btn_wbgd"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_28"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_bxgd" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_bxgdcx"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@id/btn_wbgdcx"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_28"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_bxgdcx" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_bxlr"
+                android:layout_width="@dimen/dp_136"
+                android:layout_height="@dimen/dp_72"
+                android:layout_below="@+id/btn_bxgd"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_28"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@mipmap/btn_bxlr" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

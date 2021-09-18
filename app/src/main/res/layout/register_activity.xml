@@ -151,6 +151,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/register_uesr_gender"
+            android:textColor="#777777" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_gender"
+            style="@style/EditTextStyle3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@mipmap/jiant"
+            android:hint="@string/register_select_uesr_gender"
+            android:singleLine="true"
+            android:text="" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
             android:text="@string/register_e_mail"
             android:textColor="#777777" />
 

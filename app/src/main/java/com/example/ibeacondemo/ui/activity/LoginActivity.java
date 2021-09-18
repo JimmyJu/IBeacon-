@@ -34,9 +34,10 @@ import com.google.gson.Gson;
 import com.hjq.base.BaseDialog;
 import com.hjq.http.EasyHttp;
 import com.hjq.http.listener.OnHttpListener;
-import com.hjq.toast.ToastUtils;
 import com.hjq.widget.view.SubmitButton;
 import com.tamsiree.rxkit.view.RxToast;
+
+import org.apache.commons.lang3.StringUtils;
 
 import okhttp3.Call;
 
@@ -187,7 +188,7 @@ public final class LoginActivity extends AppActivity
                     // 设置点击按钮后不关闭对话框
                     //.setAutoDismiss(false)
                     .setCancelable(false)
-                    .setList("登录为云卡用户","登录为运维用户")
+                    .setList("登录为云卡用户", "登录为运维用户")
                     .setListener(new MenuDialog.OnListener<String>() {
 
                         @Override
@@ -229,7 +230,7 @@ public final class LoginActivity extends AppActivity
                                                                 SPUtils.put(LoginActivity.this, "cloudCardNo", cloudCardNo);
                                                             }
                                                             postDelayed(() -> {
-                                                                //跳转首页
+                                                                //跳转云卡首页
                                                                 startActivity(MainActivity.class);
                                                                 finish();
                                                             }, 1000);
@@ -259,8 +260,81 @@ public final class LoginActivity extends AppActivity
 
                             } else if (position == 1) {
                                 //运维用户
-                                ToastUtils.show("此功能正在开发中! 请到微信小程序登录");
-                                mCommitView.showError(2000);
+//                                ToastUtils.show("此功能正在开发中! 请到微信小程序登录");
+//                                mCommitView.showError(2000);
+
+                                EasyHttp.post(LoginActivity.this)
+                                        .api(new LoginApi()
+                                                .setMobileNo(mPhoneView.getText().toString())
+                                                .setPassword(mPasswordView.getText().toString()))
+                                        .request(new OnHttpListener<Object>() {
+
+                                            @Override
+                                            public void onStart(Call call) {
+                                                mCommitView.showProgress();
+                                            }
+
+                                            @Override
+                                            public void onEnd(Call call) {
+                                            }
+
+                                            @Override
+                                            public void onSucceed(Object result) {
+                                                if (result != null) {
+                                                    String s = result.toString().replace("\\", "");
+                                                    String replaceJson = s.substring(1, s.length() - 1);
+                                                    if (Util.getJSONType(replaceJson)) {
+                                                        postDelayed(() -> {
+                                                            mCommitView.showSucceed();
+//                                        Log.e("TAG", "onSucceed: " + replaceJson);
+                                                            Gson gson = new Gson();
+                                                            LoginBean loginBean = gson.fromJson(replaceJson, LoginBean.class);
+                                                            //获取用户名
+                                                            String realName = loginBean.getRealName();
+                                                            //用户ID
+                                                            String id = loginBean.getID();
+                                                            if (StringUtils.isNotBlank(id)) {
+                                                                SPUtils.put(LoginActivity.this, "userInfoID", id);
+                                                            }
+                                                            if (StringUtils.isNotBlank(realName)) {
+                                                                SPUtils.put(LoginActivity.this, "realName", realName);
+
+                                                            }
+                                                            postDelayed(() -> {
+                                                                //跳转运维首页
+                                                                startActivity(OpsMainActivity.class);
+                                                                finish();
+                                                            }, 1000);
+                                                        }, 1000);
+                                                    } else {
+                                                        postDelayed(() -> {
+                                                            mCommitView.showError(3000);
+                                                            RxToast.warning(s);
+                                                        }, 1000);
+                                                    }
+                                                } else {
+                                                    postDelayed(() -> {
+                                                        mCommitView.showError(3000);
+                                                        RxToast.info("服务异常");
+                                                    }, 1000);
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFail(Exception e) {
+                                                postDelayed(() -> {
+                                                    mCommitView.showError(3000);
+                                                    RxToast.error("网络服务异常");
+                                                }, 1000);
+                                            }
+                                        });
+
+
+//                                postDelayed(() -> {
+//                                    //跳转运维首页
+//                                    startActivity(OpsMainActivity.class);
+//                                    finish();
+//                                }, 1000);
                             }
                         }
 
@@ -388,5 +462,11 @@ public final class LoginActivity extends AppActivity
             return true;
         }
         return false;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

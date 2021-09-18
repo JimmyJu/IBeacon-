@@ -41,6 +41,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,7 +87,7 @@ public final class RegisterActivity extends AppActivity
     private SubmitButton mCommitView;
 
     private EditText mUserName, mEmail;
-    private TextView mBelongingCompany, mjob, mServiceObject;
+    private TextView mBelongingCompany, mjob, mServiceObject, mUser_gender;
     private RadioGroup mRadioGroup;
     private RadioButton mRadioAdmin, mRadioUser;
     private LinearLayout mCompany2Job;
@@ -124,9 +125,10 @@ public final class RegisterActivity extends AppActivity
         mRadioAdmin = findViewById(R.id.radio_admin);
         mRadioUser = findViewById(R.id.radio_user);
         mCompany2Job = findViewById(R.id.ll_company_job);
+        mUser_gender = findViewById(R.id.tv_user_gender);
 
 
-        setOnClickListener(mCountdownView, mCommitView, mBelongingCompany, mjob, mServiceObject);
+        setOnClickListener(mCountdownView, mCommitView, mBelongingCompany, mjob, mServiceObject, mUser_gender);
 
         mSecondPassword.setOnEditorActionListener(this);
 
@@ -142,6 +144,7 @@ public final class RegisterActivity extends AppActivity
                 .addView(mFirstPassword)
                 .addView(mSecondPassword)
                 .addView(mUserName)
+                .addView(mUser_gender)
                 .addView(mEmail)
 //                .addView(mBelongingCompany)
 //                .addView(mjob)
@@ -242,6 +245,30 @@ public final class RegisterActivity extends AppActivity
                             mCountdownView.start();
                         }
                     });*/
+        } else if (view == mUser_gender) {
+            new SelectDialog.Builder(this)
+                    .setTitle("请选择你的性别")
+                    .setList("男", "女")
+                    // 设置单选模式
+                    .setSingleSelect()
+                    // 设置默认选中
+                    .setSelect(0)
+                    .setListener(new SelectDialog.OnListener<String>() {
+
+                        @Override
+                        public void onSelected(BaseDialog dialog, HashMap<Integer, String> data) {
+//                            toast("确定了：" + data.toString());
+                            Collection<String> values = data.values();
+                            mUser_gender.setText(values.toString().substring(1, values.toString().length() - 1));
+                        }
+
+                        @Override
+                        public void onCancel(BaseDialog dialog) {
+//                            toast("取消了");
+                        }
+                    })
+                    .show();
+
         } else if (view == mBelongingCompany) {
             EasyHttp.post(this)
                     .api("user/GetCompanyListOwn")
@@ -491,7 +518,7 @@ public final class RegisterActivity extends AppActivity
                             .setPassword(mFirstPassword.getText().toString())
                             .setRealName(mUserName.getText().toString())
                             .setUserType(userType)
-                            .setSex("")
+                            .setSex(mUser_gender.getText().toString())
                             .setEmail(mEmail.getText().toString())
                             .setCompanyIDs(mServiceObjectID2Str)
                             .setPositionIDs(mJobID2Str)

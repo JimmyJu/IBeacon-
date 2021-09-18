@@ -28,7 +28,6 @@
     <string name="login_forget">忘记密码？</string>
     <string name="login_text">登录</string>
     <string name="login_title">手机号登录</string>
-
     <string name="login_other">其他登录方式</string>
 
     <!-- 加载中 -->
@@ -54,6 +53,8 @@
     <string name="register_company">选择所属公司:</string>
     <string name="register_company_hint">选择所属公司</string>
     <string name="register_uesr_name">姓名</string>
+    <string name="register_uesr_gender">性别</string>
+    <string name="register_select_uesr_gender">选择您的性别</string>
     <string name="register_password_2">确认密码:</string>
     <string name="register_password_1">密码:</string>
     <string name="register_code">验证码:</string>
@@ -65,4 +66,28 @@
     <string name="register_device_administrator">设备管理员</string>
     <string name="register_proprietor">业主</string>
 
+    <string name="opsmain_title">银欣云设备运维系统</string>
+
+    <!--通用-->
+    <string name="sign_out_of_account">退出账号</string>
+
+    <!--用户信息管理-->
+    <string name="user_info_title">用户信息管理</string>
+    <string name="information_editing">信息编辑</string>
+    <string name="change_password">密码修改</string>
+    <string name="save">保存</string>
+    <string name="confirm_to_modify">确定修改</string>
+    <string name="owned_company">所属公司:</string>
+    <string name="service_target_company">服务对象公司:</string>
+    <string name="job">岗位:</string>
+    <string name="name">姓名:</string>
+    <string name="mail">电子邮箱:</string>
+    <string name="gender">性别:</string>
+    <string name="boy">男</string>
+    <string name="girl">女</string>
+    <string name="original_psw">原密码:</string>
+    <string name="original_psw_hint">请输入原密码</string>
+    <string name="new_psw">新密码:</string>
+    <string name="new_psw_again">确认密码:</string>
+    <string name="hint">欢迎:\u3000</string>
 </resources>
