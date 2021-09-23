@@ -72,9 +72,11 @@ public class OpsMainActivity extends AppActivity {
 
         } else if (viewId == R.id.btn_sblb) {
             //产品设备列表
+            startActivity(ProductDevicesListActivity.class);
 
         } else if (viewId == R.id.btn_wbgd) {
             //我的维保工单
+            startActivity(MaintenanceWorkOrderActivity.class);
 
         } else if (viewId == R.id.btn_wbgdcx) {
             //维保工单查询

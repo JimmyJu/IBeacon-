@@ -1,7 +1,7 @@
 package com.example.ibeacondemo.data;
 
 /**
- * desc   : 获取公司名称
+ * desc   : 产品设备列表--获取公司名称
  */
 public class GetCompanyListBean {
     private String CompanyID;

@@ -5,7 +5,7 @@ import com.hjq.http.config.IRequestType;
 import com.hjq.http.model.BodyType;
 
 /**
- * desc   : 修改密码
+ * desc   : 用户信息管理--修改密码API
  */
 public final class ChangePawApi implements IRequestApi, IRequestType {
     private String UserInfoID;

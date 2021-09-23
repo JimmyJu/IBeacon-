@@ -3,7 +3,7 @@ package com.example.ibeacondemo.api;
 import com.hjq.http.config.IRequestApi;
 
 /**
- *    desc   : 获取验证码
+ *    desc   : 注册--获取验证码API
  */
 public final class GetCodeApi implements IRequestApi {
 

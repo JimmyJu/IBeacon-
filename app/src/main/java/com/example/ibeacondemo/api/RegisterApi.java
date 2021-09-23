@@ -3,7 +3,7 @@ package com.example.ibeacondemo.api;
 import com.hjq.http.config.IRequestApi;
 
 /**
- * desc   : 用户注册
+ * desc   : 用户注册API
  */
 public final class RegisterApi implements IRequestApi {
 

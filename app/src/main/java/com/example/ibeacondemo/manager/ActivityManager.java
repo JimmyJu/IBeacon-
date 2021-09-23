@@ -10,10 +10,10 @@ import androidx.collection.ArrayMap;
 //import timber.log.Timber;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/11/18
- *    desc   : Activity 管理类
+ * author : Android 轮子哥
+ * github : https://github.com/getActivity/AndroidProject
+ * time   : 2018/11/18
+ * desc   : Activity 管理类
  */
 public final class ActivityManager implements Application.ActivityLifecycleCallbacks {
 
@@ -21,19 +21,26 @@ public final class ActivityManager implements Application.ActivityLifecycleCallb
 
     private final ArrayMap<String, Activity> mActivitySet = new ArrayMap<>();
 
-    /** 当前应用上下文对象 */
+    /**
+     * 当前应用上下文对象
+     */
     private Application mApplication;
-    /** 最后一个可见 Activity 标记 */
+    /**
+     * 最后一个可见 Activity 标记
+     */
     private String mLastVisibleTag;
-    /** 最后一个不可见 Activity 标记 */
+    /**
+     * 最后一个不可见 Activity 标记
+     */
     private String mLastInvisibleTag;
 
-    private ActivityManager() {}
+    private ActivityManager() {
+    }
 
     public static ActivityManager getInstance() {
-        if(sInstance == null) {
+        if (sInstance == null) {
             synchronized (ActivityManager.class) {
-                if(sInstance == null) {
+                if (sInstance == null) {
                     sInstance = new ActivityManager();
                 }
             }
@@ -101,6 +108,28 @@ public final class ActivityManager implements Application.ActivityLifecycleCallb
                     activity.finish();
                     mActivitySet.remove(key);
                 }
+            }
+        }
+    }
+
+    /**
+     * 销毁指定的 Activity
+     */
+    public void finishActivity(Class<? extends Activity> clazz) {
+        if (clazz == null) {
+            return;
+        }
+        String[] keys = mActivitySet.keySet().toArray(new String[]{});
+        for (String key : keys) {
+            Activity activity = mActivitySet.get(key);
+            if (activity == null || activity.isFinishing()) {
+                continue;
+            }
+
+            if (activity.getClass().equals(clazz)) {
+                activity.finish();
+                mActivitySet.remove(key);
+                break;
             }
         }
     }

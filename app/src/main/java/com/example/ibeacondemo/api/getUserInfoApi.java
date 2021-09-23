@@ -3,7 +3,7 @@ package com.example.ibeacondemo.api;
 import com.hjq.http.config.IRequestApi;
 
 /**
- * 获取用户信息
+ *      用户信息管理--获取用户信息API
  */
 public final class getUserInfoApi implements IRequestApi {
 

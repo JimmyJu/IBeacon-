@@ -90,4 +90,15 @@
     <string name="new_psw">新密码:</string>
     <string name="new_psw_again">确认密码:</string>
     <string name="hint">欢迎:\u3000</string>
+    
+    <!--产品设备列表-->
+    <string name="equipment_name">设备名称</string>
+    <string name="equipment_name_hint">请输入设备名称</string>
+    <string name="company_name">公司名称:</string>
+    <string name="current_state">当前状态:</string>
+    <string name="equipment_type">设备类型:</string>
+    <string name="inquire">查询</string>
+
+
+
 </resources>

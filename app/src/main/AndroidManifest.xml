@@ -27,7 +27,7 @@
         android:theme="@style/AppTheme1"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
-        <activity android:name=".ui.activity.InfoManageActivity" />
+
         <!-- 适配 Android 7.0 文件意图 -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -39,11 +39,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <!-- 云卡主页面 -->
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TranslucentTheme" />
+
         <!-- 登录页 -->
         <activity
             android:name=".ui.activity.LoginActivity"
@@ -57,16 +59,37 @@
         </activity>
 
         <service android:name=".MainService" />
+
         <!-- 注册页 -->
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
         <!-- 运维主页面 -->
         <activity
             android:name=".ui.activity.OpsMainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <!--信息管理页面-->
+        <activity
+            android:name=".ui.activity.InfoManageActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--产品设备列表页面-->
+        <activity
+            android:name=".ui.activity.ProductDevicesListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--我的维保工单页-->
+        <activity
+            android:name=".ui.activity.MaintenanceWorkOrderActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
