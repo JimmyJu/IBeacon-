@@ -22,7 +22,7 @@ import androidx.lifecycle.Observer;
  */
 public class OpsMainActivity extends AppActivity {
 
-    private TextView mRealName;
+    private TextView mRealName, mPromptMesg;
 
     @Override
     protected int getLayoutId() {
@@ -32,6 +32,8 @@ public class OpsMainActivity extends AppActivity {
     @Override
     protected void initView() {
         mRealName = findViewById(R.id.tv_userName);
+        mPromptMesg = findViewById(R.id.prompt_message);
+        mPromptMesg.setSelected(true);
 
         setOnClickListener(R.id.btn_xxgl, R.id.btn_sblb,
                 R.id.btn_wbgd, R.id.btn_wbgdcx,
@@ -50,6 +52,13 @@ public class OpsMainActivity extends AppActivity {
         //接收数据
         liveDataBus();
 
+        //获取工单数目
+        getTheNumberOfWorkOrders();
+
+    }
+
+    private void getTheNumberOfWorkOrders() {
+        mPromptMesg.setText("您有0条故障信息需处理，详情请戳“我的报修工单”按钮");
     }
 
     private void liveDataBus() {
@@ -80,15 +89,20 @@ public class OpsMainActivity extends AppActivity {
 
         } else if (viewId == R.id.btn_wbgdcx) {
             //维保工单查询
+            startActivity(MaintenanceWorkOrderQueryActivity.class);
 
         } else if (viewId == R.id.btn_bxgd) {
             //报修工单
+            startActivity(RepairWorkOrderActivity.class);
 
         } else if (viewId == R.id.btn_bxgdcx) {
             //报修工单查询
+            startActivity(RepairWorkOrderQueryActivity.class);
 
         } else if (viewId == R.id.btn_bxlr) {
             //报修录入
+            startActivity(RepairEntryActivity.class);
+
         } else if (viewId == R.id.btn_signout) {
             //退出登录
             new MessageDialog.Builder(getActivity())

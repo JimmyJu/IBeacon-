@@ -60,8 +60,12 @@
                 android:id="@+id/prompt_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginHorizontal="@dimen/dp_25"
                 android:layout_marginTop="@dimen/dp_14"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
                 android:textColor="#F63C56"
                 android:textSize="@dimen/sp_12"
                 tools:text="您有2条故障信息需处理，详情请戳“我的报修工单”按钮" />

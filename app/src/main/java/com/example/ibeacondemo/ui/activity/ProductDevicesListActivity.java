@@ -1,6 +1,7 @@
 package com.example.ibeacondemo.ui.activity;
 
 
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,8 @@ import java.util.Map;
  */
 public final class ProductDevicesListActivity extends AppActivity {
 
+    private TextView tv_title_company_name, tv_title_current_state, tv_title_equipment_type;
+
     private TextView mCompanyName, mCurrentState, mEquipmentType;
     private EditText mEquipmentName;
     private Button mInquire;
@@ -55,6 +58,10 @@ public final class ProductDevicesListActivity extends AppActivity {
 
     @Override
     protected void initView() {
+        tv_title_company_name = findViewById(R.id.tv_title_company_name);
+        tv_title_current_state = findViewById(R.id.tv_title_current_state);
+        tv_title_equipment_type = findViewById(R.id.tv_title_equipment_type);
+
         mCompanyName = findViewById(R.id.tv_company_name);
         mCurrentState = findViewById(R.id.tv_current_state);
         mEquipmentType = findViewById(R.id.tv_equipment_type);
@@ -76,6 +83,12 @@ public final class ProductDevicesListActivity extends AppActivity {
         //获取用户ID
         mUserInfoID = (String) SPUtils.get(this, "userInfoID", "");
 
+        String titleName = "<font color='#FF0000'>* </font>" + "<font color='#000000'>公司名称</font>" + "<font color='#000000'>:</font>";
+        String titleState = "<font color='#FF0000'>* </font>" + "<font color='#000000'>当前状态</font>" + "<font color='#000000'>:</font>";
+        String titleEquipment = "<font color='#FF0000'>* </font>" + "<font color='#000000'>设备类型</font>" + "<font color='#000000'>:</font>";
+        tv_title_company_name.setText(Html.fromHtml(titleName));
+        tv_title_current_state.setText(Html.fromHtml(titleState));
+        tv_title_equipment_type.setText(Html.fromHtml(titleEquipment));
     }
 
     @SingleClick

@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.example.ibeacondemo.aop.DebugLog;
 import com.example.ibeacondemo.manager.ActivityManager;
 import com.example.ibeacondemo.model.RequestHandler;
+import com.example.ibeacondemo.other.AppConfig;
+import com.example.ibeacondemo.other.DebugLoggerTree;
 import com.example.ibeacondemo.server.RequestServer;
 import com.hjq.bar.TitleBar;
 import com.hjq.bar.initializer.LightBarInitializer;
@@ -26,6 +28,7 @@ import com.tamsiree.rxkit.RxTool;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import okhttp3.OkHttpClient;
+import timber.log.Timber;
 
 public class ApplicationApp extends Application {
     @DebugLog("启动耗时")
@@ -40,7 +43,7 @@ public class ApplicationApp extends Application {
         IRequestServer server = new RequestServer();
         EasyConfig.with(new OkHttpClient())
                 // 是否打印日志
-                //.setLogEnabled(BuildConfig.DEBUG)
+                .setLogEnabled(AppConfig.isLogEnable())
                 // 设置服务器配置
                 .setServer(server)
                 // 设置请求处理策略
@@ -99,6 +102,11 @@ public class ApplicationApp extends Application {
 
         // Activity 栈管理初始化
         ActivityManager.getInstance().init(application);
+
+//        // 初始化日志打印
+        if (AppConfig.isLogEnable()) {
+            Timber.plant(new DebugLoggerTree());
+        }
 
 
 

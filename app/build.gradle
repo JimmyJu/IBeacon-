@@ -9,6 +9,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // 日志打印开关
+        buildConfigField('boolean', 'LOG_ENABLE', '' + 'true' )
+
+        // 测试包下的 BuglyId
+//        buildConfigField('String', 'BUGLY_ID', '"' + BUGLY_ID + '"')
     }
     buildTypes {
         release {
@@ -21,6 +27,19 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+    applicationVariants.all { variant ->
+        // apk 输出文件名配置
+        variant.outputs.all { output ->
+            outputFileName = rootProject.getName() + '_v' + variant.versionName + '_' + variant.buildType.name
+            if (variant.buildType.name == buildTypes.release.getName()) {
+                outputFileName += '_' + new Date().format('MMdd')
+            }
+            outputFileName += '.apk'
+        }
     }
 }
 
@@ -77,4 +96,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     //Sting类型工具类
     implementation 'org.apache.commons:commons-lang3:3.7'
+    //AOP 插件库
+    implementation 'org.aspectj:aspectjrt:1.9.6'
+
+    // 日志打印框架：https://github.com/JakeWharton/timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

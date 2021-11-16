@@ -4,6 +4,9 @@ package com.example.ibeacondemo.data;
  * desc   : 产品设备列表--查询获得的设备列表信息
  */
 public class GetDeviceInfoListBean {
+    //设备ID
+    private String ID;
+
     //设备型号
     private String DeviceNumber;
 
@@ -16,6 +19,9 @@ public class GetDeviceInfoListBean {
     //当前报修状态
     private String Status;
 
+    public String getID() {
+        return ID;
+    }
 
     public String getDeviceNumber() {
         return DeviceNumber;

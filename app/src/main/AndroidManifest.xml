@@ -9,6 +9,17 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 访问网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 外部存储 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+
+    <!-- 安装权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- 拍照权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -27,6 +38,11 @@
         android:theme="@style/AppTheme1"
         tools:replace="android:allowBackup"
         tools:targetApi="n">
+
+        <!-- 表示当前已经适配了分区存储 -->
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
 
         <!-- 适配 Android 7.0 文件意图 -->
         <provider
@@ -87,6 +103,30 @@
         <!--我的维保工单页-->
         <activity
             android:name=".ui.activity.MaintenanceWorkOrderActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--维保工单查询页面-->
+        <activity
+            android:name=".ui.activity.MaintenanceWorkOrderQueryActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--我的报修工单页-->
+        <activity
+            android:name=".ui.activity.RepairWorkOrderActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--报修工单查询页-->
+        <activity
+            android:name=".ui.activity.RepairWorkOrderQueryActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--报修录入-->
+        <activity
+            android:name=".ui.activity.RepairEntryActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

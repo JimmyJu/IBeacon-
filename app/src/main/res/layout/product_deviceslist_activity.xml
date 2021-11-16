@@ -31,6 +31,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title_company_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_16"
@@ -53,6 +54,7 @@
                     tools:text="全部" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title_current_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_16"
@@ -74,6 +76,7 @@
                     tools:text="全部" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title_equipment_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_16"

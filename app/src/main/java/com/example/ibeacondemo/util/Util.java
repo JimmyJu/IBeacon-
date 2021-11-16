@@ -66,6 +66,55 @@ public class Util {
         }
     }
 
+    //DES解密方法
+    public static byte[] decrypt(byte[] data, byte[] key) throws Exception {
+        try {
+            DESKeySpec dks = new DESKeySpec(key);
+            SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+            // key的长度不能够小于8位字节
+            Key secretKey = keyFactory.generateSecret(dks);
+            Cipher cipher = Cipher.getInstance("DES/ECB/NoPadding");
+
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+
+            byte[] bytes = cipher.doFinal(data);
+            return bytes;
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
+    }
+
+    //
+    /*public static void main(String[] args) {
+        String card = "0100030006020000";
+        String key = "2021101915204406";
+        byte[] keys = Util.merge2BytesTo1Byte(key);
+        System.out.println("keys =" + Arrays.toString(keys));
+        byte[] cards = Util.merge2BytesTo1Byte(card);
+        System.out.println("cards =" + Arrays.toString(cards));
+//        System.out.println(byte2hex(cards));
+        try {
+            byte[] encode = encode(cards, keys);
+            System.out.println(Arrays.toString(encode));
+            String byte2hex = byte2hex(encode);
+            System.out.println(byte2hex);
+            System.out.println("----------");
+            System.out.println(Arrays.toString(hexStringToBytes(byte2hex)));
+            byte[] bytes = hexStringToBytes(byte2hex);
+
+            String cardss = "2021101915204406123FDD627F3EAE5E";
+            String ss = "123FDD627F3EAE5E";
+            byte[] decrypt = decrypt(bytes, keys);
+            System.out.println(Arrays.toString(decrypt));
+            String s = byte2hex(decrypt);
+            String substring = s.substring(2, 10);
+            System.out.println(byte2hex(decrypt));
+            System.out.println("---------" + substring);
+        } catch (Exception e) {
+
+        }
+    }*/
+
     /*
      * 拼接数组
      * */
@@ -227,16 +276,12 @@ public class Util {
     }
 
 
-
     /**
      * 对字符加星号处理：除前面几位和后面几位外，其他的字符以星号代替
      *
-     * @param content
-     *            传入的字符串
-     * @param frontNum
-     *            保留前面字符的位数
-     * @param endNum
-     *            保留后面字符的位数
+     * @param content  传入的字符串
+     * @param frontNum 保留前面字符的位数
+     * @param endNum   保留后面字符的位数
      * @return 带星号的字符串
      */
 

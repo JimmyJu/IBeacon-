@@ -3,7 +3,7 @@ package com.example.ibeacondemo.api;
 import com.hjq.http.config.IRequestApi;
 
 /**
- * desc   : 产品设备列表--查询获得的设备列表信息API
+ * desc   : 产品设备列表--查询设备列表信息API
  */
 public final class GetDevicesInfoListApi implements IRequestApi {
     private String UserInfoID;
