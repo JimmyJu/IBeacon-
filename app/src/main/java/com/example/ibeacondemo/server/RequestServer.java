@@ -1,12 +1,14 @@
 package com.example.ibeacondemo.server;
 
+import com.example.ibeacondemo.other.AppConfig;
 import com.hjq.http.config.IRequestServer;
 import com.hjq.http.model.BodyType;
 
 public class RequestServer implements IRequestServer {
     @Override
     public String getHost() {
-        return "https://fms.yinxinht.com/";
+        return AppConfig.getHostUrl();
+//        return "https://fms.yinxinht.com/";
     }
 
 //    @Override

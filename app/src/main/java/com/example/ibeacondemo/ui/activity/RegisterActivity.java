@@ -1,7 +1,6 @@
 package com.example.ibeacondemo.ui.activity;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -13,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.ibeacondemo.R;
-import com.example.ibeacondemo.aop.DebugLog;
+import com.example.ibeacondemo.aop.Log;
 import com.example.ibeacondemo.aop.SingleClick;
 import com.example.ibeacondemo.api.GetCodeApi;
 import com.example.ibeacondemo.api.RegisterApi;
@@ -57,7 +56,7 @@ public final class RegisterActivity extends AppActivity
 
     private String userType = "1";
 
-    @DebugLog
+    @Log
     public static void start(BaseActivity activity, String phone, String password, OnRegisterListener listener) {
         Intent intent = new Intent(activity, RegisterActivity.class);
         intent.putExtra(IntentKey.PHONE, phone);
@@ -301,7 +300,7 @@ public final class RegisterActivity extends AppActivity
                                                         mBelongingCompanyID[i++] = map.get(value);
                                                         belongingCompanyData = belongingCompanyData + (String) value + ",";
                                                     }
-                                                    Log.e("TAG", "所属公司ID : " + Arrays.toString(mBelongingCompanyID));
+                                                    android.util.Log.e("TAG", "所属公司ID : " + Arrays.toString(mBelongingCompanyID));
                                                     mBelongingCompany.setText(belongingCompanyData.substring(0, belongingCompanyData.length() - 1));
                                                 }
                                             })
@@ -354,7 +353,7 @@ public final class RegisterActivity extends AppActivity
                                                         mJobID[i++] = map.get(value);
                                                         jobData = jobData + (String) value + ",";
                                                     }
-                                                    Log.e("TAG", "岗位ID : " + Arrays.toString(mJobID));
+                                                    android.util.Log.e("TAG", "岗位ID : " + Arrays.toString(mJobID));
                                                     mjob.setText(jobData.substring(0, jobData.length() - 1));
                                                 }
                                             })
@@ -384,7 +383,7 @@ public final class RegisterActivity extends AppActivity
                         public void onSucceed(Object result) {
                             if (result != null) {
                                 String replaceJson = result.toString().replace("\\", "");
-                                Log.e("TAG", "onSucceed: " + replaceJson);
+                                android.util.Log.e("TAG", "onSucceed: " + replaceJson);
                                 if (Util.getJSONType(replaceJson)) {
                                     Gson gson = new Gson();
                                     List<ServiceObjectBean> serviceObjectBeans = gson.fromJson(replaceJson, new TypeToken<List<ServiceObjectBean>>() {
@@ -410,7 +409,7 @@ public final class RegisterActivity extends AppActivity
                                                         mServiceObjectID[i++] = map.get(value);
                                                         ServiceObjectData = ServiceObjectData + (String) value + ",";
                                                     }
-                                                    Log.e("TAG", "服务对象公司ID : " + Arrays.toString(mServiceObjectID));
+                                                    android.util.Log.e("TAG", "服务对象公司ID : " + Arrays.toString(mServiceObjectID));
                                                     mServiceObject.setText(ServiceObjectData.substring(0, ServiceObjectData.length() - 1));
                                                 }
                                             })
@@ -503,7 +502,7 @@ public final class RegisterActivity extends AppActivity
                 }
             }
 
-            Log.e("TAG", "注册信息: " +
+            android.util.Log.e("TAG", "注册信息: " +
                     " 所属公司ID " + mBelongingCompanyID2Str +
                     " 职位ID " + mJobID2Str +
                     " 服务对象公司 " + mServiceObjectID2Str +

@@ -25,7 +25,7 @@ public class PermissionsAspect {
     /**
      * 方法切入点
      */
-    @Pointcut("com.example.ibeacondemo.aop.Permissions * *(..))")
+    @Pointcut("execution(@com.example.ibeacondemo.aop.Permissions * *(..))")
     public void method() {}
 
     /**

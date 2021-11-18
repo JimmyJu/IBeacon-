@@ -53,14 +53,21 @@ public final class AppConfig {
     /**
      * 获取 Bugly Id
      */
-//    public static String getBuglyId() {
-//        return BuildConfig.BUGLY_ID;
-//    }
+    public static String getBuglyId() {
+        return BuildConfig.BUGLY_ID;
+    }
+
+    /**
+     * Bugly 调试模式开关
+     */
+    public static boolean isBuglyEnable() {
+        return BuildConfig.BUGLY_ENABLE;
+    }
 
     /**
      * 获取服务器主机地址
      */
-//    public static String getHostUrl() {
-//        return BuildConfig.HOST_URL;
-//    }
+    public static String getHostUrl() {
+        return BuildConfig.HOST_URL;
+    }
 }

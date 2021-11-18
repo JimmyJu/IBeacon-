@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.example.ibeacondemo.MainActivity;
 import com.example.ibeacondemo.R;
-import com.example.ibeacondemo.aop.DebugLog;
+import com.example.ibeacondemo.aop.Log;
 import com.example.ibeacondemo.aop.SingleClick;
 import com.example.ibeacondemo.api.LoginApi;
 import com.example.ibeacondemo.app.AppActivity;
@@ -48,7 +48,7 @@ public final class LoginActivity extends AppActivity
         implements KeyboardWatcher.SoftKeyboardStateListener,
         TextView.OnEditorActionListener {
 
-    @DebugLog
+    @Log
     public static void start(Context context, String phone, String password) {
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(IntentKey.PHONE, phone);
