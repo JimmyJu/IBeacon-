@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/about_background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.activity.AboutActivity">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:leftTint="@color/black"
+        app:title="@string/about_title"
+        app:titleSize="@dimen/sp_18" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginVertical="@dimen/dp_23"
+        android:background="@drawable/shape_img_about"
+        android:orientation="vertical">
+
+        <com.hjq.widget.view.ScaleImageView
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_50"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/dp_23"
+            app:scaleRatio="1.5"
+            app:srcCompat="@mipmap/about_logo" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:text="@string/about_text"
+            android:lineSpacingExtra="10dp"
+            android:lineSpacingMultiplier="1"
+            android:textSize="@dimen/sp_13" />
+
+
+    </LinearLayout>
+</LinearLayout>

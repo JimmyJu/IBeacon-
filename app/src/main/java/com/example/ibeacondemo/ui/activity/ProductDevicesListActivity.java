@@ -176,7 +176,8 @@ public final class ProductDevicesListActivity extends AppActivity {
                                 String replaceJson = result.toString().replace("\\", "");
                                 if (Util.getJSONType(replaceJson)) {
                                     Gson gson = new Gson();
-                                    List<GetDeviceTypeListBean> getDeviceTypeListBeans = gson.fromJson(replaceJson, new TypeToken<List<GetDeviceTypeListBean>>() {
+                                    List<GetDeviceTypeListBean> getDeviceTypeListBeans = gson.fromJson
+                                            (replaceJson, new TypeToken<List<GetDeviceTypeListBean>>() {
                                     }.getType());
 
                                     ArrayList dataSet = new ArrayList();
@@ -237,10 +238,11 @@ public final class ProductDevicesListActivity extends AppActivity {
                                 String replaceJson = result.toString().replace("\\", "");
                                 if (Util.getJSONType(replaceJson)) {
                                     Gson gson = new Gson();
-                                    List<GetDeviceInfoListBean> getDeviceInfoListBeans = gson.fromJson(replaceJson, new TypeToken<List<GetDeviceInfoListBean>>() {
+                                    List<GetDeviceInfoListBean> getDeviceInfoListBeans = gson.fromJson
+                                            (replaceJson, new TypeToken<List<GetDeviceInfoListBean>>() {
                                     }.getType());
 
-                                    // TODO: 列表数据展示
+                                    // TODO: 列表数据
                                     ToastUtils.show(getDeviceInfoListBeans.toString());
 
                                 } else {

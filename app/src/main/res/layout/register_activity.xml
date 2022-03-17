@@ -1,299 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".ui.activity.RegisterActivity">
 
-    <LinearLayout
+    <com.hjq.bar.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:layoutAnimation="@anim/fall_down_layout"
-        android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        tools:layoutAnimation="@null">
+        android:background="@color/transparent"
+        app:leftColor="@color/black"
+        app:leftTint="@color/black"
+        app:leftTitle="访客系统注册"
+        />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_register_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="@string/register_title"
-            android:textColor="@color/black60"
-            android:textSize="23sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="@string/register_hint"
-            android:textColor="@color/black20"
-            android:textSize="14sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_20"
-            android:text="@string/register_phone"
-            android:textColor="#777777" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:clipToPadding="false"
+            android:layoutAnimation="@anim/fall_down_layout"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp"
+            tools:layoutAnimation="@null">
 
-            <FrameLayout
-                android:layout_width="0px"
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="@string/register_hint"
+                android:textColor="@color/black20"
+                android:textSize="14sp" />
 
-                <com.hjq.widget.view.RegexEditText
-                    android:id="@+id/et_register_phone"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="@string/register_phone"
+                android:textColor="#777777" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_phone"
+                        style="@style/EditTextStyle3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/common_phone_input_hint"
+                        android:inputType="textVisiblePassword"
+                        android:singleLine="true"
+                        app:regexType="mobile" />
+
+                    <View
+                        style="@style/HorizontalLineStyle"
+                        android:layout_gravity="bottom" />
+                </FrameLayout>
+
+                <com.hjq.widget.view.CountdownView
+                    android:id="@+id/cv_register_countdown"
+                    style="@style/CountdownViewStyle" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_code"
+                android:textColor="#777777" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_register_code"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/common_code_input_hint"
+                android:inputType="number"
+                android:maxLength="@integer/sms_code_length"
+                android:singleLine="true" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_password_1"
+                android:textColor="#777777" />
+
+            <com.hjq.widget.view.PasswordEditText
+                android:id="@+id/et_register_password1"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_password_hint1"
+                android:maxLength="20"
+                android:singleLine="true" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_password_2"
+                android:textColor="#777777" />
+
+            <com.hjq.widget.view.PasswordEditText
+                android:id="@+id/et_register_password2"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_password_hint2"
+                android:imeOptions="actionDone"
+                android:maxLength="20"
+                android:singleLine="true" />
+
+            <View style="@style/HorizontalLineStyle" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_uesr_name"
+                android:textColor="#777777" />
+
+            <com.hjq.widget.view.ClearEditText
+                android:id="@+id/et_user_name"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_uesr_name_hint"
+                android:maxLength="8"
+                android:singleLine="true"
+                app:regexType="name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_uesr_gender"
+                android:textColor="#777777" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_gender"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@mipmap/jiant"
+                android:hint="@string/register_select_uesr_gender"
+                android:singleLine="true"
+                android:text="" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_e_mail"
+                android:textColor="#777777" />
+
+            <com.hjq.widget.view.ClearEditText
+                android:id="@+id/et_e_mail"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_e_mail_hint"
+                android:maxLength="30"
+                android:singleLine="true"
+                app:regexType="nonnull" />
+
+            <LinearLayout
+                android:id="@+id/ll_company_job"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/register_company"
+                    android:textColor="#777777" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_belonging_company"
                     style="@style/EditTextStyle3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/common_phone_input_hint"
-                    android:inputType="textVisiblePassword"
+                    android:drawableEnd="@mipmap/jiant"
+                    android:hint="@string/register_company_hint"
                     android:singleLine="true"
-                    app:regexType="mobile" />
+                    android:text="" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/register_job"
+                    android:textColor="#777777" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_job"
+                    style="@style/EditTextStyle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@mipmap/jiant"
+                    android:hint="@string/register_job_hint"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/register_service_object"
+                android:textColor="#777777" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_service_object"
+                style="@style/EditTextStyle3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@mipmap/jiant"
+                android:hint="@string/register_service_object_hint"
+                android:singleLine="true"
+                android:text="" />
+
+            <RadioGroup
+                android:id="@+id/rg_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:background="@null"
+                    android:button="@drawable/custom_radiobutton_selector"
+                    android:checked="true"
+                    android:drawableStart="@drawable/custom_radiobutton_selector"
+                    android:drawablePadding="5dp"
+                    android:text="设备管理员"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/sp_15" />
 
                 <View
-                    style="@style/HorizontalLineStyle"
-                    android:layout_gravity="bottom" />
-            </FrameLayout>
+                    android:id="@+id/view1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-            <com.hjq.widget.view.CountdownView
-                android:id="@+id/cv_register_countdown"
-                style="@style/CountdownViewStyle" />
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_code"
-            android:textColor="#777777" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_register_code"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/common_code_input_hint"
-            android:inputType="number"
-            android:maxLength="@integer/sms_code_length"
-            android:singleLine="true" />
-
-        <View style="@style/HorizontalLineStyle" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_password_1"
-            android:textColor="#777777" />
-
-        <com.hjq.widget.view.PasswordEditText
-            android:id="@+id/et_register_password1"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_password_hint1"
-            android:maxLength="20"
-            android:singleLine="true" />
-
-        <View style="@style/HorizontalLineStyle" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_password_2"
-            android:textColor="#777777" />
-
-        <com.hjq.widget.view.PasswordEditText
-            android:id="@+id/et_register_password2"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_password_hint2"
-            android:imeOptions="actionDone"
-            android:maxLength="20"
-            android:singleLine="true" />
-
-        <View style="@style/HorizontalLineStyle" />
+                <RadioButton
+                    android:id="@+id/radio_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:background="@null"
+                    android:button="@drawable/custom_radiobutton_selector"
+                    android:drawableStart="@drawable/custom_radiobutton_selector"
+                    android:drawablePadding="5dp"
+                    android:text="业主"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/sp_15" />
+            </RadioGroup>
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_uesr_name"
-            android:textColor="#777777" />
-
-        <com.hjq.widget.view.ClearEditText
-            android:id="@+id/et_user_name"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_uesr_name_hint"
-            android:maxLength="8"
-            android:singleLine="true"
-            app:regexType="name" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_uesr_gender"
-            android:textColor="#777777" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_user_gender"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@mipmap/jiant"
-            android:hint="@string/register_select_uesr_gender"
-            android:singleLine="true"
-            android:text="" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_e_mail"
-            android:textColor="#777777" />
-
-        <com.hjq.widget.view.ClearEditText
-            android:id="@+id/et_e_mail"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/register_e_mail_hint"
-            android:maxLength="30"
-            android:singleLine="true"
-            app:regexType="nonnull" />
-
-        <LinearLayout
-            android:id="@+id/ll_company_job"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/register_company"
-                android:textColor="#777777" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_belonging_company"
-                style="@style/EditTextStyle3"
+            <com.hjq.widget.view.SubmitButton
+                android:id="@+id/btn_register_commit"
+                style="@style/ButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@mipmap/jiant"
-                android:hint="@string/register_company_hint"
-                android:singleLine="true"
-                android:text="" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/register_job"
-                android:textColor="#777777" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_job"
-                style="@style/EditTextStyle3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@mipmap/jiant"
-                android:hint="@string/register_job_hint"
-                android:singleLine="true"
-                android:text="" />
+                android:layout_marginVertical="30dp"
+                android:text="@string/register_title" />
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:text="@string/register_service_object"
-            android:textColor="#777777" />
+    </androidx.core.widget.NestedScrollView>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_service_object"
-            style="@style/EditTextStyle3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@mipmap/jiant"
-            android:hint="@string/register_service_object_hint"
-            android:singleLine="true"
-            android:text="" />
-
-        <RadioGroup
-            android:id="@+id/rg_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_10"
-            android:layout_marginEnd="@dimen/dp_16"
-            android:layout_marginBottom="@dimen/dp_20"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio_admin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|start"
-                android:background="@null"
-                android:button="@drawable/custom_radiobutton_selector"
-                android:checked="true"
-                android:drawableStart="@drawable/custom_radiobutton_selector"
-                android:drawablePadding="5dp"
-                android:text="设备管理员"
-                android:textColor="#333333"
-                android:textSize="@dimen/sp_15" />
-
-            <View
-                android:id="@+id/view1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:id="@+id/radio_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|end"
-                android:background="@null"
-                android:button="@drawable/custom_radiobutton_selector"
-                android:drawableStart="@drawable/custom_radiobutton_selector"
-                android:drawablePadding="5dp"
-                android:text="业主"
-                android:textColor="#333333"
-                android:textSize="@dimen/sp_15" />
-        </RadioGroup>
-
-
-        <com.hjq.widget.view.SubmitButton
-            android:id="@+id/btn_register_commit"
-            style="@style/ButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="30dp"
-            android:text="@string/register_title" />
-
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    android:orientation="vertical"
+    tools:context=".ui.activity.CopyActivity">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backButton="false"
+        app:leftColor="@color/black"
+        app:leftSize="@dimen/sp_15"
+        app:leftTitle="首页"
+        app:rightColor="@color/black"
+        app:rightSize="@dimen/sp_15"
+        app:rightTitle="未登录" />
+
+    <RelativeLayout
+        android:id="@+id/rl_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_login_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/front_page_background" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:srcCompat="@mipmap/front_page_font" />
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_mark1"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_155"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_img_btn_shadow"
+                android:gravity="center_vertical|center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_visitor_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@mipmap/visitor_system" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_visitor_system"
+                    android:layout_marginHorizontal="@dimen/dp_11"
+                    android:text="访客系统"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mark2"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_155"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@drawable/shape_img_btn_shadow"
+                android:gravity="center_vertical|center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_smart_garage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@mipmap/smart_garage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_smart_garage"
+                    android:layout_marginHorizontal="@dimen/dp_11"
+                    android:text="智慧车库"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mark3"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_155"
+                android:layout_below="@id/rl_mark1"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_img_btn_shadow"
+                android:gravity="center_vertical|center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_conference_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@mipmap/conference_system" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_conference_system"
+                    android:layout_marginHorizontal="@dimen/dp_11"
+                    android:text="会议系统"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mark4"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_155"
+                android:layout_below="@id/rl_mark2"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@drawable/shape_img_btn_shadow"
+                android:gravity="center_vertical|center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_om_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@mipmap/om_system" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_om_system"
+                    android:layout_marginHorizontal="@dimen/dp_11"
+                    android:text="运维系统"
+                    android:textSize="@dimen/sp_18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_23"
+                android:layout_below="@id/rl_mark4"
+                >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_login_ver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FF9800"
+                    tools:text="Version:1.1.12"
+                    android:textSize="@dimen/sp_14" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_update"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@id/tv_login_ver"
+                    android:src="@mipmap/update_200px" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

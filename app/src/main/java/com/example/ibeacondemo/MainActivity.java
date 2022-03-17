@@ -518,6 +518,7 @@ public class MainActivity extends AppCompatActivity {
             EventBus.getDefault().unregister(this);
         }
         Handler.removeCallbacks(mRunnable);
+        stopService(new Intent(MainActivity.this, MainService.class));
     }
 
 

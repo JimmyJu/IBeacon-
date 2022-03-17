@@ -16,7 +16,9 @@
 
     <!-- 外部存储 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <!-- 安装权限 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
@@ -60,15 +62,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <!-- 云卡主页面 -->
+        <!--首页（主） -->
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/TranslucentTheme" />
-
-        <!-- 登录页 -->
-        <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.activity.FrontPageActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -76,6 +72,38 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- 访客登录-->
+        <activity
+            android:name=".ui.activity.GuestLoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!-- 访客注册-->
+        <activity
+            android:name=".ui.activity.GuestRegisterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!--关于 -->
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <!-- 云卡页面 -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme" />
+
+        <!-- 运维登录页 -->
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+
         </activity>
 
         <service android:name=".MainService" />
@@ -133,6 +161,12 @@
             android:name=".ui.activity.RepairEntryActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <!-- 升级框  -->
+        <!--        <activity-->
+        <!--            android:name="com.tencent.bugly.beta.ui.BetaActivity"-->
+        <!--            android:configChanges="keyboardHidden|orientation|screenSize|locale"-->
+        <!--            android:theme="@android:style/Theme.Translucent" />-->
 
     </application>
 

@@ -25,6 +25,7 @@ import com.example.ibeacondemo.api.LoginApi;
 import com.example.ibeacondemo.app.AppActivity;
 import com.example.ibeacondemo.data.LoginBean;
 import com.example.ibeacondemo.manager.InputTextManager;
+import com.example.ibeacondemo.other.AppConfig;
 import com.example.ibeacondemo.other.IntentKey;
 import com.example.ibeacondemo.other.KeyboardWatcher;
 import com.example.ibeacondemo.ui.dialog.MenuDialog;
@@ -36,6 +37,7 @@ import com.hjq.http.EasyHttp;
 import com.hjq.http.listener.OnHttpListener;
 import com.hjq.widget.view.SubmitButton;
 import com.tamsiree.rxkit.view.RxToast;
+import com.tencent.bugly.beta.Beta;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -71,6 +73,9 @@ public final class LoginActivity extends AppActivity
     //记住密码标识
     private boolean flag;
 
+    private TextView mVersion;
+    private ImageView mUpdate;
+
 
     /**
      * logo 缩放比例
@@ -95,8 +100,10 @@ public final class LoginActivity extends AppActivity
         mForgetView = findViewById(R.id.tv_login_forget);
         mCommitView = findViewById(R.id.btn_login_commit);
         mRememberPsw = findViewById(R.id.login_checkBox);
+        mVersion = findViewById(R.id.tv_login_ver);
+        mUpdate = findViewById(R.id.login_update);
 
-        setOnClickListener(mForgetView, mCommitView);
+        setOnClickListener(mForgetView, mCommitView, mUpdate);
 
         mPasswordView.setOnEditorActionListener(this);
 
@@ -117,6 +124,8 @@ public final class LoginActivity extends AppActivity
         // 自动填充手机号和密码
         mPhoneView.setText(getString(IntentKey.PHONE));
         mPasswordView.setText(getString(IntentKey.PASSWORD));
+
+        mVersion.setText("Version" + AppConfig.getVersionName());
 
         flag = (Boolean) SPUtils.get(LoginActivity.this, "RememberPsw", false);
         mRememberPsw.setChecked(flag);
@@ -163,6 +172,10 @@ public final class LoginActivity extends AppActivity
 //            startActivity(PasswordForgetActivity.class);
 //            return;
 //        }
+
+        if (view == mUpdate) {
+            Beta.checkUpgrade();
+        }
 
         if (view == mCommitView) {
             if (mPhoneView.getText().toString().length() != 11) {

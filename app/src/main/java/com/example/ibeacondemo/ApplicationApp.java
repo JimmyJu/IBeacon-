@@ -29,6 +29,8 @@ import com.hjq.toast.ToastInterceptor;
 import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.ToastBlackStyle;
 import com.tamsiree.rxkit.RxTool;
+import com.tencent.bugly.Bugly;
+import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import androidx.annotation.NonNull;
@@ -54,6 +56,10 @@ public class ApplicationApp extends Application {
 
 
     public static void initSdk(Application application) {
+
+        //设置启动延时为1s（默认延时3s），APP启动1s后初始化SDK，避免影响APP启动速度;
+        Beta.initDelay = 1 * 1000;
+
             // 初始化吐司
         ToastUtils.init(application, new ToastBlackStyle(application) {
 
@@ -85,7 +91,7 @@ public class ApplicationApp extends Application {
             }
         });
 
-        // Activity 栈管理初始化
+        //***** 统一初始化Bugly产品，包含Beta *****/
         ActivityManager.getInstance().init(application);
 
         // 初始化日志打印
@@ -94,7 +100,8 @@ public class ApplicationApp extends Application {
         }
 
         // Bugly 异常捕捉
-        CrashReport.initCrashReport(application, AppConfig.getBuglyId(), AppConfig.isBuglyEnable());
+//        CrashReport.initCrashReport(application, AppConfig.getBuglyId(), AppConfig.isBuglyEnable());
+        Bugly.init(application, AppConfig.getBuglyId(), AppConfig.isBuglyEnable());
 
         // 网络请求框架初始化
         IRequestServer server = new RequestServer();

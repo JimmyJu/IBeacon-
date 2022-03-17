@@ -11,9 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
 /**
- *    author : Android 轮子哥
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2019/12/08
  *    desc   : 标题栏意图
  */
 public interface TitleBarAction extends OnTitleBarListener {

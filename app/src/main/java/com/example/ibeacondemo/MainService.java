@@ -12,6 +12,7 @@ import android.os.SystemClock;
 import org.greenrobot.eventbus.EventBus;
 
 import androidx.annotation.Nullable;
+import timber.log.Timber;
 
 //import android.support.annotation.Nullable;
 
@@ -49,5 +50,16 @@ public class MainService extends Service {
             alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtMillis, pendingIntent);
         }
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        Timber.i("MainService--onDestroy");
+        super.onDestroy();
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent alarmIntent = new Intent(this, MainService.class);
+
+        PendingIntent pendingIntent = PendingIntent.getService(this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmManager.cancel(pendingIntent);
     }
 }

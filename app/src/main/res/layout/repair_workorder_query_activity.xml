@@ -12,4 +12,126 @@
         android:layout_height="wrap_content"
         app:title="报修工单查询" />
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_title_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="7dp"
+                    android:text="@string/company_name"
+                    android:textColor="#777777"
+                    android:textSize="@dimen/sp_12" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_company_name"
+                    style="@style/EditTextStyle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:drawableEnd="@mipmap/jiant"
+                    android:gravity="center"
+                    android:hint="请选择公司"
+                    tools:text="全部" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_tittle_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="7dp"
+                    android:text="@string/equipment_name"
+                    android:textColor="#777777"
+                    android:textSize="@dimen/sp_12" />
+
+                <com.hjq.widget.view.ClearEditText
+                    android:id="@+id/equipment_name"
+                    style="@style/EditTextStyle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:gravity="center"
+                    android:hint="@string/equipment_name_hint"
+                    android:singleLine="true"
+                    app:regexType="nonnull"
+                    tools:text="" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="7dp"
+                    android:text="@string/device_model"
+                    android:textColor="#777777"
+                    android:textSize="@dimen/sp_12" />
+
+                <com.hjq.widget.view.ClearEditText
+                    android:id="@+id/tv_device_model"
+                    style="@style/EditTextStyle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:gravity="center"
+                    android:hint="@string/device_model_hint"
+                    android:singleLine="true"
+                    app:regexType="nonnull"
+                    tools:text="" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="7dp"
+                    android:text="@string/repair_order_number"
+                    android:textColor="#777777"
+                    android:textSize="@dimen/sp_12" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_repair_num"
+                    style="@style/EditTextStyle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:gravity="center"
+                    android:hint="@string/repair_order_number_hint"
+                    android:singleLine="true"
+                    app:regexType="nonnull"
+                    tools:text="" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_inquire"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginVertical="15dp"
+                    android:text="@string/inquire" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

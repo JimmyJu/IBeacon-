@@ -19,6 +19,7 @@
         android:layout_marginTop="@dimen/dp_30"
         android:src="@mipmap/logo_001" />
 
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_login_title"
         android:layout_width="wrap_content"
@@ -125,5 +126,32 @@
             android:text="@string/login_text" />
 
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_login_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:textColor="#FF9800"
+            android:textSize="@dimen/sp_14" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/login_update"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/tv_login_ver"
+            android:src="@mipmap/update_200px" />
+
+    </RelativeLayout>
+
 
 </LinearLayout>
